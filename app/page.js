@@ -1,9 +1,14 @@
+"use client"
 import Image from 'next/image'
 import styles from './page.module.css'
-
+import ItemList from '@/components/ItemList'
+import { ApolloProvider } from "@apollo/client";
+import client from '@/utils/apolloClient'
 export default function Home() {
   return (
     <main className={styles.main}>
+  <ApolloProvider client={client}>
+      <ItemList/>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
@@ -90,6 +95,7 @@ export default function Home() {
           </p>
         </a>
       </div>
+      </ApolloProvider>
     </main>
   )
 }
